@@ -30,3 +30,7 @@
   color: #000;
   background-color: #fff;
 }
+
+.contenedor input[type="button"] {
+  width: 100%;
+}

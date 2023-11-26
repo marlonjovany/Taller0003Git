@@ -9,14 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnResultado = document.getElementById("resultado");
     var btnLimparTela = document.getElementById("limparTela");
     var btnApagarAnterior = document.getElementById("apagarAnterior");
+ 
 
     listenerBtn.push(document.getElementById("ponto"));
+    listenerBtn.push(document.getElementById("funcion"));
 
     //teclas dos operadores
     listenerBtn.push(document.getElementById("soma"));
     listenerBtn.push(document.getElementById("subtracao"));
     listenerBtn.push(document.getElementById("divisao"));
     listenerBtn.push(document.getElementById("multiplicacao"));
+   
+   
 
     //teclas númericas da calculadora
     listenerBtn.push(document.getElementById("num0"));
@@ -31,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
     listenerBtn.push(document.getElementById("num9"));
 
     //Adicionando evento de click
+   
+    document.getElementById("funcion").addEventListener("click", function () {
+        convertirFahrenheitACelsius();
+    });
     for (var i = 0; i < listenerBtn.length; i++) {
         listenerBtn[i].addEventListener("click", passarValorTela);
     }
@@ -56,6 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error(e);
         }
     }
+     
+
+    function convertirFahrenheitACelsius() {
+      
+            var valorFahrenheit = tela.value.trim(); 
+   
+            if (!isNaN(valorFahrenheit)) {
+              
+                tela.value = ((parseFloat(valorFahrenheit) - 32) * (5 / 9));
+            } 
+       
+    }
+
+
+
 
     function passarValorTela() {
 
@@ -98,6 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
             case "/":
                 return true;
 
+          
+                   
             default:
                 return false;
         }
